@@ -7,7 +7,7 @@ import BentoTilt from "./BentoTilt";
 
 const Features = () => {
     return (
-        <section className="bg-black pb-52">
+        <section className="bg-black pb-20">
             <div className="container mx-auto px-3 md:px-10">
                 <div className="px-5 py-32 ">
                     <p className="font-circuler-web text-lg text-blue-50 ">Into the metagame layer</p>
