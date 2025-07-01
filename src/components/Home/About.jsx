@@ -35,11 +35,11 @@ const About = () => {
             <div className="relative mb-8 mt-20 flex flex-col items-center gap-5">
                 <h2 className="font-general text-sm uppercase md:text-[10px] ">welcome</h2>
 
-                <AnimatedTitle title='Disc<b>o</b>ver <br/> the larg<b>e</b>ts <b>a</b>dventure' containerClass='mt-5 !text-black text-center' ></AnimatedTitle>
+                <AnimatedTitle title='Unl<b>e</b>ash <br/> the F<b>u</b>tu<b>r</b>e of Esports' containerClass='mt-5 !text-black text-center' ></AnimatedTitle>
 
                 <div className="about-subtext capitalize">
-                    <p>The Game of the GAmes begins now</p>
-                    <p>experience the best in the world</p>
+                    <p>Step into a world where milliseconds separate champions </p>
+                    <p>from challengers, and every moment is a shot at immortality.</p>
                 </div>
             </div>
 

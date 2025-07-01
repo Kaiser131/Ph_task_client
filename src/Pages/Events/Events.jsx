@@ -42,7 +42,7 @@ const Events = () => {
     return (
         <div className='min-h-[calc(100dvh-80px)] mt-20 max-w-6xl mx-auto'>
             {/* search  todays date filter*/}
-            <div className='flex gap-3'>
+            <div className='flex flex-col md:flex-row gap-3'>
                 <form onSubmit={handleSearch} className='relative mb-6'>
                     <input name='search' type="text" placeholder="Search events by title..." className="w-full p-2 border border-gray-300 rounded-md" />
                     <button className='absolute right-5 top-1/2 transform -translate-y-1/2'><FaSearch /></button>

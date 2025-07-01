@@ -102,14 +102,18 @@ const Navbar = () => {
                                 }
 
                             }}
-                            className={`font-kaushan  text-3xl ${location?.pathname === '/' && currentScrollY === 0 ? 'text-white' : 'text-black'}`}>HandsOn</motion.button></Link>
+                            className={` text-3xl 
+                            ${location?.pathname === '/' && 'text-white'}   
+                            ${location?.pathname !== '/' && currentScrollY !== 0 ? 'text-white' : 'text-black '}`}>Arcane</motion.button></Link>
                     </div>
 
 
 
 
                     <motion.div
-                        className={`flex  h-full items-center ${location?.pathname === '/' && currentScrollY === 0 ? 'text-white' : 'text-black'}`}>
+                        className={`flex  h-full items-center 
+                             ${location?.pathname === '/' && 'text-white'}
+                        ${location?.pathname !== '/' && currentScrollY !== 0 ? 'text-white' : 'text-black '}`}>
 
                         <div className={` hidden md:block`}>
                             {navItems.map((nav, idx) => (
@@ -133,52 +137,6 @@ const Navbar = () => {
                         </button>
 
                     </motion.div>
-
-
-
-
-                    {/* modal */}
-                    {/* <motion.div
-                        initial={{}}
-                        animate={{ x: isOpen ? -330 : 0 }}
-                        transition={{ type: "tween", duration: 0.3 }}
-                        className="absolute  md:py-5 right-[-330px] top-[-32px] pl-5 w-4/5 min-h-[100dvh] md:w-64 bg-white shadow-lg"
-                    >
-                        <button
-                            onClick={() => setIsOpen(!open)}
-                            className="absolute p-4 text-xl md:text-2xl text-black right-2 md:right-10 top-5"
-                        >
-                            <RxCross2 />
-                        </button>
-
-
-                        <div className="mt-16 pr-5 flex flex-col items-center gap-2">
-                            <p className="text-black text-center text-sm mt-[-30px] font-galada">বিশুদ্ধতা, বিশ্বস্ততা ও সুন্নাহ-সম্মত বিবাহের নির্ভরযোগ্য প্রতিষ্ঠান</p>
-                            <img src="/images/underline_img2.png" alt="" />
-                        </div>
-
-
-
-                        <nav className="mt-10 flex flex-col gap-4 text-xs md:text-sm">
-                            <div className={` md:hidden text-white flex space-y-2 flex-col`}>
-                                {navItems.map((nav, idx) => (
-                                    <Link key={idx} to={nav?.destination} className="flex border-b -ml-5 px-5 pb-2 gap-2" >
-                                        <span className="text-2xl text-[#C3937C]">{nav?.icon}</span>
-                                        <button className={`uppercase nav-hover-btn text-black font-galada`}>{nav?.name}</button>
-                                    </Link>
-                                ))}
-                            </div>
-                            {
-                                user ?
-                                    <button className="absolute bottom-5 left-10 text-base font-raleway text-red-600" onClick={logOut}>Logout</button> :
-                                    <Link to='/login' className="absolute bottom-5 font-lexend left-10 text-base text-green-600">Login</Link>
-                            }
-                        </nav>
-                    </motion.div> */}
-
-
-
-
 
                 </nav>
             </header>

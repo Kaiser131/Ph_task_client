@@ -26,7 +26,7 @@ const Contact = () => {
                     <p className="font-general uppercase text-[10px].">
                         Join Arcane
                     </p>
-                    <p className=" special-font mt-10 w-full font-zentry text-5xl leading-[0.9] md:text-[6rem] z-10 ">Lets w<b>a</b>tc<b>h</b> <br /> the big adventure <b>o</b>f <br /> jin<b>x</b> </p>
+                    <p className=" special-font mt-10 w-full font-zentry text-5xl leading-[0.9] md:text-[6rem] z-10 ">Lets m<b>a</b>k<b>e</b> <br /> the big adventure <b>o</b>f <br /> Arc<b>a</b>ne </p>
 
                     <Button title="Contact Us" containerClass=' cursor-pointer' ></Button>
 
