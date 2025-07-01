@@ -66,7 +66,7 @@ const AddEvents = () => {
                         <input
                             type="text"
                             name="eventTitle"
-                            className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                            className="w-full px-4 py-2 border border-gray-300  rounded-md"
                             required
                         />
                     </div>

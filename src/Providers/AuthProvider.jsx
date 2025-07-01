@@ -14,6 +14,9 @@ const AuthProvider = ({ children }) => {
 
     const removeCurrentUser = () => {
         localStorage.removeItem('currentUser');
+        setTimeout(() => {
+            window.location.reload();
+        }, 100);
     };
 
     console.log('Current User:', currentUser);

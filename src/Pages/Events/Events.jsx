@@ -16,7 +16,7 @@ const Events = () => {
 
 
 
-    const { data = [] } = useQuery({
+    const { data = [], refetch } = useQuery({
         queryKey: ['events', searchQuery, todayDate, dateRange],
         queryFn: async () => {
             const { data } = await axiosSecure.get(`/events?search=${searchQuery}&date=${todayDate}&dateRange=${dateRange}`);
@@ -24,7 +24,7 @@ const Events = () => {
         },
     });
 
-    console.log(data);
+    // console.log(data);
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -69,7 +69,7 @@ const Events = () => {
             </div>
             <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 w-full'>
                 {
-                    data?.map((got, idx) => (<EventCard key={idx} data={got} />))
+                    data?.map((got, idx) => (<EventCard refetch={refetch} key={idx} data={got} />))
                 }
             </div>
         </div>

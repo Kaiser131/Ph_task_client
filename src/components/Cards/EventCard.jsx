@@ -1,8 +1,55 @@
 import React from 'react';
 import { CalendarDays, MapPin, Users, User } from 'lucide-react';
+import useAxiosSecure from '../../Hooks/Axios/useAxiosSecure';
+import { useMutation } from '@tanstack/react-query';
+import useAuth from '../../Hooks/Auth/useAuth';
+import toast from 'react-hot-toast';
 
-const EventCard = ({ data }) => {
-    const { eventTitle, name, eventDate, eventTime, location, description, attendeeCount } = data;
+const EventCard = ({ data, refetch }) => {
+    const { eventTitle, name, eventDate, eventTime, location, description, attendeeCount, _id } = data;
+
+    const { currentUser } = useAuth();
+
+    const axiosSecure = useAxiosSecure();
+    const { mutateAsync } = useMutation({
+        mutationFn: async (joinData) => {
+            const { data } = await axiosSecure.post(`/join_events/${joinData?.event_id}`, joinData);
+            return data;
+        },
+        onSuccess: () => {
+            toast.success('Successfully joined the event!');
+            refetch();
+        },
+        onError: (error) => {
+            console.error('Error joining event:', error);
+        }
+    });
+
+    const handleJoinEvent = async (id) => {
+        const joinData = {
+            event_id: id,
+            eventTitle: eventTitle,
+            name: name,
+            eventDate: eventDate,
+            eventTime: eventTime,
+            location: location,
+            description: description,
+            attendeeCount: attendeeCount + 1,
+            attendee: currentUser
+        };
+
+        try {
+            const response = await mutateAsync(joinData);
+            console.log('Event joined successfully:', response);
+        } catch (error) {
+            console.error('Error joining event:', error);
+        }
+
+        console.log(id);
+        await mutateAsync(joinData);
+
+    };
+
     return (
         <div className="w-[340px] rounded-2xl bg-gradient-to-br from-white to-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 p-6 border border-gray-200">
             {/* Header */}
@@ -37,7 +84,7 @@ const EventCard = ({ data }) => {
                     <Users className="w-4 h-4 mr-1 text-green-500" />
                     <span>{attendeeCount} attending</span>
                 </div>
-                <button className="text-indigo-600 hover:text-indigo-800 hover:underline font-medium transition">
+                <button onClick={() => handleJoinEvent(_id)} className="text-indigo-600 hover:text-indigo-800 hover:underline font-medium transition">
                     Join Event
                 </button>
             </div>

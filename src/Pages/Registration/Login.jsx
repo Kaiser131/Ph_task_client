@@ -63,6 +63,9 @@ const Login = () => {
             localStorage.setItem('currentUser', result.email);
             toast.success(result.message);
             navigate('/');
+            setTimeout(() => {
+                window.location.reload();
+            }, 100);
         } catch (err) {
             if (axios.isAxiosError(err)) {
                 const msg = err.response?.data?.message || 'Login failed';

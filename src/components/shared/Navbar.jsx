@@ -18,12 +18,25 @@ import { CiUser } from "react-icons/ci";
 import { TbUsersGroup } from "react-icons/tb";
 import { FaYoutube } from "react-icons/fa";
 import useAuth from "../../Hooks/Auth/useAuth";
+import useAxiosSecure from "../../Hooks/Axios/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 
 const Navbar = () => {
 
     const { currentUser, removeCurrentUser } = useAuth();
     const location = useLocation();
+
+
+    const axiosSecure = useAxiosSecure();
+    const { data = [] } = useQuery({
+        queryKey: ['user', currentUser],
+        queryFn: async () => {
+            const { data } = await axiosSecure.get(`/current_user/${currentUser}`);
+            return data;
+        }
+    });
+
 
     const navContainerRef = useRef(null);
     const navItems = [
@@ -107,11 +120,11 @@ const Navbar = () => {
                             ))}
                         </div>
 
-                        {!currentUser && <Link to='/login' className="nav-hover-btn" >login</Link>}
-
+                        {!currentUser && <Link to='/login' className="nav-hover-btn" >Sign In</Link>}
                         {currentUser && <button className="nav-hover-btn" onClick={removeCurrentUser}>log out</button>}
-
-                        {/* {user && <button onClick={logOut} className="nav-hover-btn" >LogOut</button>} */}
+                        {currentUser &&
+                            <img src={data?.image} alt="" className="w-10 h-10 rounded-full object-cover ml-4" />
+                        }
 
                         <button
                             onClick={() => setIsOpen(!isOpen)}

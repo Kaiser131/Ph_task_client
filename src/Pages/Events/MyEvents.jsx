@@ -27,7 +27,7 @@ const MyEvents = () => {
         <div className='min-h-[calc(100dvh-80px)] mt-20 max-w-6xl mx-auto'>
             <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 w-full'>
                 {
-                    myEvents?.map((got, idx) => (<MyEventCard key={idx} data={got} />))
+                    myEvents?.map((got, idx) => (<MyEventCard refetch={refetch} key={idx} data={got} />))
                 }
             </div>
         </div>
