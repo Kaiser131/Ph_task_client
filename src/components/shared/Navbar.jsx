@@ -77,7 +77,6 @@ const Navbar = () => {
         });
     }, [isNavVisible]);
 
-    // ${location?.pathname === '/' && currentScrollY === 0 ? 'text-black' : 'text-white'}
 
     return (
         <div ref={navContainerRef} className="fixed inset-x-0 top-0 z-50 h-16 border-none transition-all duration-700 sm:inset-x-6  mt-5">
@@ -103,14 +102,14 @@ const Navbar = () => {
                                 }
 
                             }}
-                            className={`font-kaushan  text-3xl text-black`}>HandsOn</motion.button></Link>
+                            className={`font-kaushan  text-3xl ${location?.pathname === '/' && currentScrollY === 0 ? 'text-white' : 'text-black'}`}>HandsOn</motion.button></Link>
                     </div>
 
 
 
 
                     <motion.div
-                        className={`flex  h-full items-center text-black`}>
+                        className={`flex  h-full items-center ${location?.pathname === '/' && currentScrollY === 0 ? 'text-white' : 'text-black'}`}>
 
                         <div className={` hidden md:block`}>
                             {navItems.map((nav, idx) => (

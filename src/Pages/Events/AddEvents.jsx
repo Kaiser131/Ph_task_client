@@ -57,16 +57,16 @@ const AddEvents = () => {
 
     return (
         <div className="min-h-screen bg-gray-100 py-10 px-4 pt-24">
-            <div className="max-w-2xl mx-auto bg-white p-8 shadow-lg rounded-2xl">
+            <div className="max-w-2xl mx-auto bg-green-600 p-8 shadow-lg rounded-2xl">
                 <h2 className="text-3xl font-bold text-center text-blue-600 mb-6">Add New Event</h2>
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4 bg-red-400">
 
                     <div>
                         <label className="block font-medium">Event Title</label>
                         <input
                             type="text"
                             name="eventTitle"
-                            className="w-full px-4 py-2 border border-gray-300  rounded-md"
+                            className=" px-4 py-2 outline outline-1 bg-yellow-400 rounded-md"
                             required
                         />
                     </div>
